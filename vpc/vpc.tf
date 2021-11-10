@@ -1,0 +1,15 @@
+locals {
+  common_tags = {
+    Team       = "DevOps"
+    Enviroment = "Dev"
+  }
+}
+resource "aws_vpc" "main" {
+  cidr_block           = "10.0.0.0/16"
+  instance_tenancy     = "default"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+  tags                 = local.common_tags
+}
+
+
